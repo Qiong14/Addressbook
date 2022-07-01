@@ -2,9 +2,10 @@ package com.qiong.addressbook;
 
 import java.util.Scanner;
 
+//校准类
 public class TelNoteRegex {
 
-    public int menuItemValidate(int min, int max){
+    public static int menuItemValidate(int min, int max){
         String regex = "[1-9]{1}";
         Scanner scanner = new Scanner(System.in);
         while(true){
@@ -23,7 +24,7 @@ public class TelNoteRegex {
         }
     }
 
-    public String nameValidate(){
+    public static String nameValidate(){
         String regex = "[a-zA-Z]{1,20}";
         Scanner scanner = new Scanner(System.in);
         while(true){
@@ -38,7 +39,7 @@ public class TelNoteRegex {
 
     }
 
-    public String ageValidate(){
+    public static String ageValidate(){
         String regex = "[0-9]{1,2}";
         Scanner scanner = new Scanner(System.in);
         while(true){
@@ -52,7 +53,7 @@ public class TelNoteRegex {
         }
     }
 
-    public String sexValidate(){
+    public static String sexValidate(){
         String regex = "[mMfF]{1}";
         Scanner scanner = new Scanner(System.in);
         while(true){
@@ -66,7 +67,7 @@ public class TelNoteRegex {
         }
     }
 
-    public String telNumValidate(){
+    public static String telNumValidate(){
         String regex = "\\d{1,11}|";
         Scanner scanner = new Scanner(System.in);
         while(true){
@@ -80,7 +81,7 @@ public class TelNoteRegex {
         }
     }
 
-    public String addressValidate(){
+    public static String addressValidate(){
         String regex = "\\w{1,50}";
         Scanner scanner = new Scanner(System.in);
         while(true){

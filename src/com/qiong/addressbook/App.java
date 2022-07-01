@@ -7,12 +7,10 @@ public class App {
     }
 
     public void start(){
-        Menu menu = new Menu();
-        TelNoteRegex regex = new TelNoteRegex();
         Operate operate = new Operate();
         while (true){
-            menu.mainMenu();
-            int item = regex.menuItemValidate(1,6);
+            Menu.mainMenu();
+            int item = TelNoteRegex.menuItemValidate(1,6);
             switch (item){
                 case 1:
                     operate.addLogic();

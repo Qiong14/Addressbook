@@ -5,9 +5,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+//操作加数据库，或可分离
 public class Operate {
-    private List<ContactPerson> list = new ArrayList<>();
-
+    private List<ContactPerson> list = new ArrayList<>() ;
     public Operate(List<ContactPerson> list) {
         this.list = list;
     }
@@ -16,11 +16,9 @@ public class Operate {
     }
 
     public void addLogic(){
-        Menu menu = new Menu();
-        TelNoteRegex regex = new TelNoteRegex();
         while(true){
-            menu.addMenu();
-            int item = regex.menuItemValidate(1, 3);
+            Menu.addMenu();
+            int item = TelNoteRegex.menuItemValidate(1, 3);
             switch (item){
                 case 1: this.addOperation(); break;
                 case 2: this.showAll(); break;
@@ -30,11 +28,9 @@ public class Operate {
     }
 
     public void searchLogic(){
-        Menu menu = new Menu();
-        TelNoteRegex regex = new TelNoteRegex();
         while(true){
-            menu.searchMenu();
-            int item = regex.menuItemValidate(1, 7);
+            Menu.searchMenu();
+            int item = TelNoteRegex.menuItemValidate(1, 7);
             switch (item){
                 case 1: this.searchByName(); break;
                 case 2: this.searchByAge(); break;
@@ -48,11 +44,9 @@ public class Operate {
     }
 
     public void modifyLogic(){
-        Menu menu = new Menu();
-        TelNoteRegex regex = new TelNoteRegex();
         while(true){
-            menu.modifyMenu();
-            int item = regex.menuItemValidate(1, 3);
+            Menu.modifyMenu();
+            int item = TelNoteRegex.menuItemValidate(1, 3);
             switch (item){
                 case 1: this.modifyOperation(); break;
                 case 2: this.showAll(); break;
@@ -62,11 +56,9 @@ public class Operate {
     }
 
     public void deleteLogic(){
-        Menu menu = new Menu();
-        TelNoteRegex regex = new TelNoteRegex();
         while(true){
-            menu.deleteMenu();
-            int item = regex.menuItemValidate(1, 4);
+            Menu.deleteMenu();
+            int item = TelNoteRegex.menuItemValidate(1, 4);
             switch (item){
                 case 1: this.deleteOperation(); break;
                 case 2: this.showAll(); break;
@@ -77,11 +69,9 @@ public class Operate {
     }
 
     public void orderLogic(){
-        Menu menu = new Menu();
-        TelNoteRegex regex = new TelNoteRegex();
         while(true){
-            menu.orderMenu();
-            int item = regex.menuItemValidate(1, 5);
+            Menu.orderMenu();
+            int item = TelNoteRegex.menuItemValidate(1, 5);
             switch (item){
                 case 1: this.orderByName(); break;
                 case 2: this.orderByAge(); break;
@@ -93,12 +83,11 @@ public class Operate {
     }
 
     public void addOperation(){
-        TelNoteRegex regex = new TelNoteRegex();
-        String name = regex.nameValidate();
-        String age = regex.ageValidate();
-        String sex = regex.sexValidate();
-        String telNum = regex.telNumValidate();
-        String address = regex.addressValidate();
+        String name = TelNoteRegex.nameValidate();
+        String age = TelNoteRegex.ageValidate();
+        String sex = TelNoteRegex.sexValidate();
+        String telNum = TelNoteRegex.telNumValidate();
+        String address = TelNoteRegex.addressValidate();
         ContactPerson person = new ContactPerson(name, age, sex, telNum, address);
         this.list.add(person);
         person.setId(this.list.size());
@@ -115,8 +104,7 @@ public class Operate {
     }
 
     public void searchByName(){
-        TelNoteRegex regex = new TelNoteRegex();
-        String name = regex.nameValidate();
+        String name = TelNoteRegex.nameValidate();
         boolean flag = false;
         for (int i = 0; i < this.list.size(); i++){
             if (name.equals(this.list.get(i).getName())) {
@@ -130,8 +118,7 @@ public class Operate {
     }
 
     public void searchByAge(){
-        TelNoteRegex regex = new TelNoteRegex();
-        String age = regex.ageValidate();
+        String age = TelNoteRegex.ageValidate();
         boolean flag = false;
         for (int i = 0; i < this.list.size(); i++){
             if (age.equals(this.list.get(i).getAge())) {
@@ -145,8 +132,7 @@ public class Operate {
     }
 
     public void searchBySex(){
-        TelNoteRegex regex = new TelNoteRegex();
-        String sex = regex.sexValidate();
+        String sex = TelNoteRegex.sexValidate();
         boolean flag = false;
         for (int i = 0; i < this.list.size(); i++){
             if (sex.equals(this.list.get(i).getSex())) {
@@ -160,8 +146,7 @@ public class Operate {
     }
 
     public void searchByTelNum(){
-        TelNoteRegex regex = new TelNoteRegex();
-        String telNum = regex.telNumValidate();
+        String telNum = TelNoteRegex.telNumValidate();
         boolean flag = false;
         for (int i = 0; i < this.list.size(); i++){
             if (telNum.equals(this.list.get(i).getTelNum())) {
@@ -175,8 +160,7 @@ public class Operate {
     }
 
     public void searchByAddr(){
-        TelNoteRegex regex = new TelNoteRegex();
-        String add = regex.addressValidate();
+        String add = TelNoteRegex.addressValidate();
         boolean flag = false;
         for (int i = 0; i < this.list.size(); i++){
             if (add.equals(this.list.get(i).getAddress())) {
@@ -190,32 +174,30 @@ public class Operate {
     }
 
     public void modifyOperation(){
-        Menu menu = new Menu();
-        TelNoteRegex regex = new TelNoteRegex();
         System.out.println("Please enter Id: ");
-        int idItem = regex.menuItemValidate(1, this.list.size());
+        int idItem = TelNoteRegex.menuItemValidate(1, this.list.size());
         while(true){
-            menu.subModifyMenu();
-            int menuItem = regex.menuItemValidate(1, 6);
+            Menu.subModifyMenu();
+            int menuItem = TelNoteRegex.menuItemValidate(1, 6);
             switch (menuItem){
                 case 1:
-                    String name = regex.nameValidate();
+                    String name = TelNoteRegex.nameValidate();
                     (this.list.get(idItem - 1)).setName(name);
                     break;
                 case 2:
-                    String age = regex.ageValidate();
+                    String age = TelNoteRegex.ageValidate();
                     (this.list.get(idItem - 1)).setName(age);
                     break;
                 case 3:
-                    String sex = regex.sexValidate();
+                    String sex = TelNoteRegex.sexValidate();
                     (this.list.get(idItem - 1)).setSex(sex);
                     break;
                 case 4:
-                    String telNum = regex.telNumValidate();
+                    String telNum = TelNoteRegex.telNumValidate();
                     (this.list.get(idItem - 1)).setTelNum(telNum);
                     break;
                 case 5:
-                    String add = regex.addressValidate();
+                    String add = TelNoteRegex.addressValidate();
                     (this.list.get(idItem - 1)).setAddress(add);
                     break;
                 case 6: return;
@@ -224,9 +206,8 @@ public class Operate {
     }
 
     public void deleteOperation(){
-        TelNoteRegex regex = new TelNoteRegex();
         System.out.println("Please enter Id: ");
-        int idItem = regex.menuItemValidate(1, this.list.size());
+        int idItem = TelNoteRegex.menuItemValidate(1, this.list.size());
         this.list.remove(idItem - 1);
         for (int i = 0; i < this.list.size(); i++){
             (this.list.get(i)).setId(i+1);

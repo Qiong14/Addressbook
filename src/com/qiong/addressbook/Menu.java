@@ -1,7 +1,8 @@
 package com.qiong.addressbook;
 
+//显示类
 public class Menu {
-    public void mainMenu(){
+    public static void mainMenu(){
         System.out.println("***************************");
         System.out.println("**    1. Add Contact     **");
         System.out.println("**    2. Search Contact  **");
@@ -12,7 +13,7 @@ public class Menu {
         System.out.println("***************************");
     }
 
-    public void addMenu(){
+    public static void addMenu(){
         System.out.println("***************************");
         System.out.println("**    1. Add Contact     **");
         System.out.println("**    2. View            **");
@@ -20,7 +21,7 @@ public class Menu {
         System.out.println("***************************");
     }
 
-    public void searchMenu(){
+    public static void searchMenu(){
         System.out.println("***************************");
         System.out.println("**    1. Search Name     **");
         System.out.println("**    2. Search Age      **");
@@ -32,7 +33,7 @@ public class Menu {
         System.out.println("***************************");
     }
 
-    public void modifyMenu(){
+    public static void modifyMenu(){
         System.out.println("***************************");
         System.out.println("**    1. Modify Contact  **");
         System.out.println("**    2. View            **");
@@ -40,7 +41,7 @@ public class Menu {
         System.out.println("***************************");
     }
 
-    public void subModifyMenu(){
+    public static void subModifyMenu(){
         System.out.println("***************************");
         System.out.println("**    1. Modify Name     **");
         System.out.println("**    2. Modify Age      **");
@@ -52,7 +53,7 @@ public class Menu {
         System.out.println("***************************");
     }
 
-    public void deleteMenu(){
+    public static void deleteMenu(){
         System.out.println("***************************");
         System.out.println("**    1. Delete Contact  **");
         System.out.println("**    2. View            **");
@@ -60,7 +61,7 @@ public class Menu {
         System.out.println("***************************");
     }
 
-    public void orderMenu(){
+    public static void orderMenu(){
         System.out.println("***************************");
         System.out.println("**    1. Order Name      **");
         System.out.println("**    2. Order Age       **");
